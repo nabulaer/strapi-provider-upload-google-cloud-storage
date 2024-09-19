@@ -4,7 +4,9 @@
     "es6": true,
     "mocha": true
   },
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "extends": [
     "eslint:recommended",
     "prettier",
@@ -18,7 +20,7 @@
     "strapi": "readonly"
   },
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": 2020
   },
   "rules": {
     "prettier/prettier": 1,

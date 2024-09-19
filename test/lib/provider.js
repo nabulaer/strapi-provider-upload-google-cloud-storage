@@ -25,7 +25,7 @@ describe('/lib/provider.js', () => {
           bucketName: 'some-bucket',
         };
         const error = new Error(
-          'Error parsing data "Service Account JSON", please be sure to copy/paste the full JSON file.'
+          'Error parsing data "Service Account JSON", please be sure to copy/paste the full JSON file.',
         );
         assert.throws(() => checkServiceAccount(config), error);
       });
@@ -36,7 +36,7 @@ describe('/lib/provider.js', () => {
           bucketName: 'some-bucket',
         };
         const error = new Error(
-          'Error parsing data "Service Account JSON". Missing "project_id" field in JSON file.'
+          'Error parsing data "Service Account JSON". Missing "project_id" field in JSON file.',
         );
         assert.throws(() => checkServiceAccount(config), error);
       });
@@ -47,7 +47,7 @@ describe('/lib/provider.js', () => {
           bucketName: 'some-bucket',
         };
         const error = new Error(
-          'Error parsing data "Service Account JSON". Missing "project_id" field in JSON file.'
+          'Error parsing data "Service Account JSON". Missing "project_id" field in JSON file.',
         );
         assert.throws(() => checkServiceAccount(config), error);
       });
@@ -60,7 +60,7 @@ describe('/lib/provider.js', () => {
           bucketName: 'some-bucket',
         };
         const error = new Error(
-          'Error parsing data "Service Account JSON". Missing "client_email" field in JSON file.'
+          'Error parsing data "Service Account JSON". Missing "client_email" field in JSON file.',
         );
         assert.throws(() => checkServiceAccount(config), error);
       });
@@ -74,7 +74,7 @@ describe('/lib/provider.js', () => {
           bucketName: 'some-bucket',
         };
         const error = new Error(
-          'Error parsing data "Service Account JSON". Missing "private_key" field in JSON file.'
+          'Error parsing data "Service Account JSON". Missing "private_key" field in JSON file.',
         );
         assert.throws(() => checkServiceAccount(config), error);
       });
@@ -85,7 +85,7 @@ describe('/lib/provider.js', () => {
           bucketName: 'some-bucket',
         };
         const error = new Error(
-          'Error parsing data "Service Account JSON". Missing "private_key" field in JSON file.'
+          'Error parsing data "Service Account JSON". Missing "private_key" field in JSON file.',
         );
         assert.throws(() => checkServiceAccount(config), error);
       });
@@ -134,7 +134,10 @@ describe('/lib/provider.js', () => {
         };
         checkServiceAccount(config);
         assert.ok(Object.keys(config).includes('baseUrl'));
-        assert.equal(config.baseUrl, 'https://storage.googleapis.com/{bucket-name}');
+        assert.equal(
+          config.baseUrl,
+          'https://storage.googleapis.com/{bucket-name}',
+        );
       });
 
       it('must accept baseUrl changing value', () => {
@@ -193,7 +196,7 @@ describe('/lib/provider.js', () => {
         };
 
         const error = new Error(
-          'An error occurs when we try to retrieve the Bucket "my-bucket". Check if bucket exist on Google Cloud Platform.'
+          'An error occurs when we try to retrieve the Bucket "my-bucket". Check if bucket exist on Google Cloud Platform.',
         );
 
         await assert.rejects(checkBucket(gcsMock, 'my-bucket'), error);
@@ -327,7 +330,9 @@ describe('/lib/provider.js', () => {
             ext: '.jpeg',
             mime: 'image/jpeg',
             size: 897.78,
-            related: [{ refId: '1', ref: 'galleries', source: undefined, field: 'cover' }],
+            related: [
+              { refId: '1', ref: 'galleries', source: undefined, field: 'cover' },
+            ],
             width: 4373,
             height: 2915,
             buffer: 'file buffer data',
@@ -500,7 +505,10 @@ describe('/lib/provider.js', () => {
             ];
 
             const fileMock = createFileMock({ saveExpectedArgs });
-            const expectedFileNames = ['/tmp/strapi/4l0ngH45h.jpeg', '/tmp/strapi/4l0ngH45h.jpeg'];
+            const expectedFileNames = [
+              '/tmp/strapi/4l0ngH45h.jpeg',
+              '/tmp/strapi/4l0ngH45h.jpeg',
+            ];
             const bucketMock = createBucketMock({ fileMock, expectedFileNames });
             const Storage = class {
               bucket(bucketName) {
@@ -542,7 +550,10 @@ describe('/lib/provider.js', () => {
             ];
 
             const fileMock = createFileMock({ saveExpectedArgs });
-            const expectedFileNames = ['/tmp/strapi/4l0ngH45h.jpeg', '/tmp/strapi/4l0ngH45h.jpeg'];
+            const expectedFileNames = [
+              '/tmp/strapi/4l0ngH45h.jpeg',
+              '/tmp/strapi/4l0ngH45h.jpeg',
+            ];
             const bucketMock = createBucketMock({ fileMock, expectedFileNames });
             const Storage = class {
               bucket(bucketName) {
@@ -611,7 +622,7 @@ describe('/lib/provider.js', () => {
               bucketName: 'any bucket',
               generateUploadFileName: async (file) => {
                 const hash = await new Promise((resolve) =>
-                  setTimeout(resolve('da2f32c2de25f0360d6a5e129dcf9cbc'), 0)
+                  setTimeout(resolve('da2f32c2de25f0360d6a5e129dcf9cbc'), 0),
                 );
                 const extension = file.ext.toLowerCase().substring(1);
                 return `${extension}/${slugify(path.parse(file.name).name)}-${hash}.${extension}`;
@@ -638,7 +649,10 @@ describe('/lib/provider.js', () => {
             ];
 
             const fileMock = createFileMock({ saveExpectedArgs });
-            const expectedFileNames = ['/tmp/strapi/4l0ngH45h.jpeg', '/tmp/strapi/4l0ngH45h.jpeg'];
+            const expectedFileNames = [
+              '/tmp/strapi/4l0ngH45h.jpeg',
+              '/tmp/strapi/4l0ngH45h.jpeg',
+            ];
             const bucketMock = createBucketMock({ fileMock, expectedFileNames });
             const Storage = class {
               bucket(bucketName) {
@@ -680,7 +694,10 @@ describe('/lib/provider.js', () => {
             ];
 
             const fileMock = createFileMock({ saveExpectedArgs });
-            const expectedFileNames = ['/tmp/strapi/4l0ngH45h.jpeg', '/tmp/strapi/4l0ngH45h.jpeg'];
+            const expectedFileNames = [
+              '/tmp/strapi/4l0ngH45h.jpeg',
+              '/tmp/strapi/4l0ngH45h.jpeg',
+            ];
             const bucketMock = createBucketMock({ fileMock, expectedFileNames });
             const Storage = class {
               bucket(bucketName) {
@@ -815,12 +832,17 @@ describe('/lib/provider.js', () => {
 
           it('must log message and resolve with nothing', async () => {
             global.strapi.log.debug = (...args) => {
-              assert.deepEqual(args, ['File o/people-working.png successfully deleted']);
+              assert.deepEqual(args, [
+                'File o/people-working.png successfully deleted',
+              ]);
               assertionsCount += 1;
             };
             assertionsCount = 0;
             const expectedFileNames = ['o/people-working.png'];
-            const bucketMock = createBucketMock({ fileMock: createFileMock(), expectedFileNames });
+            const bucketMock = createBucketMock({
+              fileMock: createFileMock(),
+              expectedFileNames,
+            });
             mockRequire('@google-cloud/storage', {
               Storage: class {
                 bucket(bucketName) {

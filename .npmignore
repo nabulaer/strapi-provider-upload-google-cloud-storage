@@ -10,13 +10,11 @@ Icon
 .Trashes
 ._*
 
-
 ############################
 # Linux
 ############################
 
 *~
-
 
 ############################
 # Windows
@@ -30,7 +28,6 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
-
 
 ############################
 # Packages
@@ -60,16 +57,15 @@ $RECYCLE.BIN/
 *.out
 *.pid
 
-
 ############################
 # Logs and databases
 ############################
 
 .tmp
 *.log
-*.sql
+# *.sql
 *.sqlite
-
+*.sqlite3
 
 ############################
 # Misc.
@@ -77,11 +73,10 @@ $RECYCLE.BIN/
 
 *#
 ssl
-.editorconfig
-.gitattributes
 .idea
 nbproject
-
+public/uploads/*
+!public/uploads/.gitkeep
 
 ############################
 # Node.js
@@ -92,13 +87,45 @@ lcov.info
 pids
 logs
 results
-build
 node_modules
 .node_history
-
 
 ############################
 # Tests
 ############################
 
-test
+coverage
+
+############################
+# Strapi
+############################
+
+.env
+license.txt
+exports
+*.cache
+dist
+build
+.strapi-updater.json
+.strapi
+
+############################
+# Custom
+############################
+dist
+exports
+build
+.cache
+.history
+.yarn
+.yarnrc
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+
+# local env files
+.env*

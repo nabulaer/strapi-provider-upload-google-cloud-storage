@@ -1,0 +1,10 @@
+node_modules
+public
+dist
+.history
+.netlify
+.cache
+yarn.lock
+.strapi-updater.json
+build
+pnpm-lock.yaml
